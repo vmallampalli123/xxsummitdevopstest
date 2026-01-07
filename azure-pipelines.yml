@@ -5,7 +5,9 @@
 
 trigger:
 - main
-
+variables:
+- name: one
+  value: initialValue 
 pool:
   vmImage: ubuntu-latest
 stages:
@@ -15,8 +17,9 @@ stages:
         steps:
           - script: |
              echo Add other tasks to build, test, and deploy your project
-             cd projects
-            
+             echo ${{ variables.one }} # outputs initialValue
+             echo $(one)
+          
 
 
 
